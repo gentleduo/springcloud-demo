@@ -1,0 +1,20 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: eureka
+eureka:
+  client:
+    #  属性表示是否将自己注册到Eureka Server， 默认为true。由于当前应用就是Eureka Server， 因此设为 false；
+    register-with-eureka: false
+    #  表示是否从Eureka Server获取注册信息，默认为true。如果这是一个单点的 Eureka Server，不需要同步其他节点的数据，可以设为false。
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  server:
+    #  在默认配置中，Eureka Server在默认90s没有得到客户端的心跳，则注销该实例，
+    #  但是往往因为微服务跨进程调用网络通信往往会面临各种问题，比如微服务状态正常，但是因为网络分区故障时，Eureka Server注销服务实例则会让大部分微服务不可用，这很危险，因为服务明明没有问题。
+    #  为了解决这个问题，Eureka 有自我保护机制，通过在Eureka Server配置enable-self-preservation参数，可启动保护机制
+    #  enable-self-preservation默认为true，当Eureka Server节点在短时间内丢失过多的客户端时（可能发送了网络故障），那么这个节点将进入自我保护模式，不再注销任何微服务，（即状态还是显示为up）
+    #  当设置enable-self-preservation为false时，Eureka Server在90s没有得到客户端的心跳，则注销该客户端实例，
+    enable-self-preservation: false

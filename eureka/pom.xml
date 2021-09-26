@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 继承关系 -->
+    <parent>
+        <!--父工程 gropuId-->
+        <artifactId>springcloud-demo</artifactId>
+        <!--父工程 artifactId-->
+        <groupId>org.duo</groupId>
+        <!--父工程 版本-->
+        <version>1.0-RELEASE</version>
+        <!--在聚合项目中relativePath可以省略-->
+        <!-- <relativePath>../pom.xml</relativePath>-->
+    </parent>
+    <!--在继承关系中，子项目会自动继承父项目的groupId，所以子项目不需要定义groupId-->
+    <artifactId>eureka</artifactId>
+    <packaging>jar</packaging>
+    <name>eureka</name>
+    <description>Eureka Server</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+    </dependencies>
+</project>

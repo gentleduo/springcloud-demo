@@ -1,0 +1,16 @@
+#server:
+#  port: 8080
+spring:
+  application:
+    name: producer-service
+#  cloud:
+#    inetutils:
+#      default-ip-address: 192.168.56.110
+eureka:
+  client:
+    service-url:
+      defaultZone: http://server01:8761/eureka/,http://server02:8761/eureka/,http://server03:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    ip-address: 192.168.56.111
+    instance-id: ${eureka.instance.ip-address}:${server.port}

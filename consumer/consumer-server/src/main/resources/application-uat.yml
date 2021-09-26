@@ -1,0 +1,9 @@
+#server:
+#  port: 8080
+spring:
+  application:
+    name: consumer-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://server01:8761/eureka/,http://server02:8761/eureka/,http://server03:8761/eureka/

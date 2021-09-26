@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- 确认继承关系 -->
+    <parent>
+        <!--父工程 artifactId-->
+        <artifactId>producer</artifactId>
+        <!--父工程 gropuId-->
+        <groupId>org.duo</groupId>
+        <!--父工程 版本-->
+        <version>1.0-RELEASE</version>
+        <!--在聚合项目中relativePath可以省略-->
+        <!-- <relativePath>../pom.xml</relativePath>-->
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <!--在继承关系中，子项目会自动继承父项目的groupId，所以子项目不需要定义groupId-->
+    <artifactId>producer-client</artifactId>
+    <name>producer-client</name>
+    <description>Producer Client Service</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.duo</groupId>
+            <artifactId>producer-common</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
